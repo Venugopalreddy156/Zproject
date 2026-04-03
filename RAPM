@@ -1,0 +1,597 @@
+SAP UI5/FIORI TOPICS:
+
+SAPUI5: A JavaScript UI framework by SAP for building responsive web applications.
+It provides reusable controls and follows MVC architecture.
+SAP FIORI: A design system by SAP for creating simple and user-friendly enterprise apps.
+It focuses on role-based, responsive, and modern UX.
+Types of Binding: Data binding connects UI controls with model data in SAPUI5.
+Main types are Property binding, Aggregation binding, and Element binding.
+MVC Architecture: A design pattern that separates application into Model, View, and Controller.
+It improves maintainability by separating data, UI, and logic.
+Types of models: Models manage application data and business logic in SAPUI5.
+Common types are JSON Model, OData Model, and XML Model.
+Types of views: Views define the UI layout and structure of the application.
+Types include XML View, JSON View, HTML View, and JavaScript View.
+Json view it represents the javascript object notation format.
+XML with HTML, mixed, or Standalone: Library- sap.ui.core.mvc.XMLView
+•	JavaScript: Library- sap.ui.core.mvc.JSView
+•	JSON: Library - sap.ui.core.mvc.JSONView
+•	HTML: Library - sap.ui.core.mvc.HTMLView
+Fiori Elements:
+SAP Fiori Elements is a low-code metadata- driven framework for building SAP Fiori apps, significantly speeding up development by using predefined, standardized floorplans(templates) list report, worklist.
+It generates UI at runtime based on OData services and annotations, eliminating manual frontend coding and ensuring consistent user experience.
+Prepare Your Development Environment for SAP Fiori Elements
+Set up your development environment with SAP Business Application Studio to create an SAP Fiori
+Semantic object: A Semantic object represents a specific business entity (e.g., customer, product, sales order) used in Fiori launchpad intent based navigation. It abstracts technical app implementations, allowing applications to link one to another using a consistent action pair (semantic object action).  
+Fragment: Fragment is used a reusable component with ui controls and used to open the dialog page and popups.
+A fragment in SAP Fiori (SAPUI5) is a lightweight, reusable UI component used to define frequently used UI parts, such as dialogs, popovers, or forms, without needing a dedicated controller. Defined primarily in XML (.fragment.xml), fragments share the parent view's controller for event handling and reduce overhead.
+Formatter:
+Lifecycle methods or hook methods:
+Oninit
+Rendering
+Onafterrendering
+Onexit
+
+
+WEBIDE Destinations:
+Monitoring - Connectivity 
+Destinations - Name , 
+Type - HTTP, 
+Description:GWD, 
+URL: 
+ProxyType:OnPremise, 
+Authentication: Basic Authentication, Location Id, Userid, Password.
+Additional Properties:
+Sap-client – 210
+WebIDEEnabled – true
+WebIDESystem – GWD
+WebIDEUsage - odata_abap,odata_gen,ui5_execute_abap,dev_abap,bsp_execute_abap
+
+Fiori Application Project Structure:
+Fiori Appname
+Webapp – in webapp we have the following folder – controller, css, i18n, model, test, view, component.js, index.html, manifest.json, neo-app.json,package-lock.json, package.json and ui5.yaml
+
+Project Files Explanation
+Routes and Targets
+SAPUI5 Libraries:
+Sap.m
+Sap.l
+Sap.ui
+Sap.ui.layout
+Sap.ui.core
+Sap.ui.core.mvc
+Sap.ui.comp.smartatble
+Sap.ui.comp.samrtfilterbar
+xmlns:core="sap.ui.core"
+ xmlns:mvc="sap.ui.core.mvc" 
+xmlns="sap.m" 
+xmlns:html="http://www.w3.org/1999/xhtml" 
+xmlns:u="sap.uxap" 
+xmlns:l="sap.ui.layout" 
+xmlns:f="sap.ui.layout.form"
+xmlns:smartTable="sap.ui.comp.smarttable" 
+xmlns:tab="sap.ui.table" 
+xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+smart table & Smart Filter bar:
+SmartFilterBar and SmartTable are SAP Fiori "smart" UI5 controls that leverage OData metadata to automatically generate filtering capabilities and data displays. They reduce development time by enabling features like automatic column rendering, sorting, grouping, and personalization (e.g., variant management) directly from the backend data.
+SAPUI5 Frontend tcodes:
+/n/iwfnd/error_log 
+/n/iwfnd/maint_services
+Sicf
+/n/ui2/flp
+/n/ui2/flpd_cust
+Lpd_cust
+/n/ui5/theme_designer
+Cache reports:
+/ui2/invalidate_client_caches - Client Cache Invalidation
+/ui2/invalidate_Global_caches - Global Cache Invalidation
+/ui5/app_index_calculate - Calculation of SAPUI5 Application Index
+/ui5/ui5_repository_load - Upload, Download, or Delete Apps to or from SAPUI5 ABAP Repository
+/ui2/delete_cache_after_imp - Delete UI2 Cache after import of a Support Package
+Developer tools:
+Elements
+Console
+Sources 
+Network
+Performance
+Memory 
+Application
+Security
+Lighthouse
+Recorder
+
+Fiori launchpad services
+page_builder_conf, page_builder_cust, page_builder_pers, transport, interop (interpersonalization)
+
+Usestrict
+Rendering:
+Onbefore rendering
+Onafter rendering
+Onexit
+
+One-way, two way and one-time bindings
+Two-way binding is the default json model
+
+Types of routing:
+Var and let
+Undefined and null
+Synchronous & Asynchronous
+Promise
+Types of templates
+Difference between OData V2 and OData V4
+I18n
+Real time examples for the above topics
+Deployment options:
+Deployment options
+System – Choose the system – in which system you need to deploy the application.
+Choose Existing Application if you choose the update an existing application radio button.
+In deployment options choose the Deploy a new application radio button and the second tab is deploy a new application screen in that tab we need to give the app name and app description and give the package.
+Third tab is the Select a transport request you can give the transport request or transport description and last tab is confirm tab once you confirm the app will be deployed in the required destinations.
+Function:
+In SAPUI5 Development, the terms’ function and action have different meanings on whether they refer to client side code( JavaScript) or the backend OData service definition.
+Client-side (SAPUI5/JavaScript): A function is a standard JavaScript code block that performs a task or calculates a value. These are the foundational building blocks of your UI logic, used for things like handling events, formatting data, or organizing code in your controllers and utility files.
+Back-End (OData Service): In an OData Service, a function is a server-side operation that must be read-only and must not have any observable side effects. Functions are invoked using HTTP GET requests and are primarily used to return data that cannot be retrieved through standard entity set queries, such as a calculated value.
+Action:
+Client-Side (SAPUI5/JavaScript/Fiori Elements):
+An action in the UI Typically refers to a user interaction, like a button press (E.g; “save”, “delete”, “approve”) that triggers a specific behavior. These user interface actions can be built-in (generic Fiori actions), defined via annotations, or implemented with custom controller code.
+Back-End OData Service:
+In an OData service, an action is a server-side operation that may have side effects on the server data. Actions are designed for logic that modifies data (e.g; changing the status of an order) and are invoked using HTTP POST requests to ensure proper transactional handling and prevent non-deterministic behavior.
+Call back function:
+In SAPUI5 a callback function is a standard JavaScript function passed as an argument to another function, which is executed upon completion of an operation, such as event, an asynchronous data call, or dialog closing. They are essential for handling the flow of control, particularly in asynchronous scenarios like OData model operations or loading fragments.
+Dev, QA and Production display in Fiori launchpad.
+We need to use the Fiori launchpad theme designer and configure those parameters then instead of seeing the URL in which system there is another way where we can customize with dev and along s4hana version name in the Fiori Launchpad.
+How we can import the logo in custom Fiori app and what is the process.
+
+BTP
+BAS: SAP Business Application Studio (BAS) is a cloud-based Integrated Development Environment (IDE) on the SAP Business Technology Platform (BTP), designed for building and extending SAP applications. As the successor to SAP Web IDE, it provides tailored dev spaces for SAP Fiori, SAP S/4HANA extensions, and full-stack development, featuring a VS Code-like interface.
+BTP Services: BAS, Build Work zone, CTMS, SAPHANA Cloud, Cloud Identity Services
+Types of build workzones:
+
+Buildworkzone process:
+SAP Build Work Zone (formerly SAP Launchpad service and SAP Work Zone) provides a central entry point for SAPUI5 applications, offering different types of workspaces, content integration methods, and specialized UI components. 
+The main "types" of work zones and related concepts in SAP BTP are:
+Editions of SAP Build work zone:
+SAP Build Work Zone Standard Edition: Primarily a Fiori Launchpad for integrating and structuring SAP UI5 Fiori Apps, offering standard workspaces and a central entry point.
+SAP Build Work Zone Advanced Edition: A more comprehensive “digital workplace” solution that includes content management, workplaces for collaboration, and structured page layouts.
+SAP Success Factors work zone: Architecturally equivalent to the advanced edition, but tailored with pre-delivered HXM (Human Experience Management)  content packages, workspace templates, and guided experiences.
+
+Create the site directory where we can create the space, pages, catalog, semantic object and roles.
+We need to follow the following sequence to see the tile Build Work zone.
+	1.	Once the app is deployed, the app is available in HTML5 Applications Repository
+2	After that we need to go the content manager where we can see the content explorer button click on that button then we can see that there is drop down with the two fields select channel and HTML5 Apps there we can add option two add the apps.
+3	Next create the catalog and enable the application.
+4	Next create the space and enable the application
+5	Next create the page and add the title with the widgets.
+6	next create the role assign the space to role and enable the application.
+
+BAS App Structure:
+App name
+.vscode
+nodemodules
+Webapp
+annotations
+Css
+Ext - Ext/main
+I18n
+Localservice
+test
+Component.js
+Index.html
+Manifest.json
+.appGenInfo.json
+.gitignore
+Eslint.config.mjs
+Mta.yaml
+Package-lock.json
+Package.json
+README.md
+Ui5-deploy.yaml - Defines build and deployment configuration for the application.
+Used to deploy the app to SAP BTP or other target environments.
+Ui5-local.yaml - Extends ui5.yaml for local development settings.
+Used to configure proxies, middleware, and local testing.
+Ui5-mock.yaml - Used to run the app with mock data instead of real backend services.
+Helps simulate APIs for frontend testing without a live server.
+Ui5.yaml - Base configuration file that defines project type, framework, and dependencies.
+Used by UI5 Tooling for build and runtime behavior.
+Xs-app.json
+Xs-security.json
+Files Explanation:
+
+
+CAPM App Structure:
+BAS Architecture to CAPM App:
+The architecture for an SAP Cloud Application Programming Model (CAPM) application built within SAP Business Application Studio (BAS) is a full-stack, multi-target application (MTA) structure composed of distinct layers: database (db), services (srv), and application/UI (app).
+CTMS Process:
+
+SAP HANA Cloud Foundry
+Cloud Identity Services
+
+March 30th, 2026
+CAPM Application Creation.
+Cds init <project name>
+Once you create the capm app and extend to Fiori app the below screen is the app structure.
+
+ 
+
+App
+.vscode
+Fiori project name
+Webapp folder
+Under webapp folder the below folders will be there.
+ 
+.vscode
+Fiori project name
+Webapp folder
+Controller
+Css
+I18n
+Model 
+Service
+Utility
+View
+Annotation.cds
+Component.js
+Index.html
+Manifest.json
+.gitignore file
+Package-lock.json
+Package.json
+README.md
+Ui5-deploy.yaml
+Ui5-lock.yaml
+Ui5.yaml
+Xs-app.json
+
+
+
+
+
+
+RAPM:
+RAP (RESTful ABAP Programming Model) topics in SAP, along with definitions, and how they connect to full-stack development. I’ll break it down clearly so you can understand both the SAP-specific concepts and the broader full-stack picture.
+What is RAP in SAP?
+RAP (RESTful ABAP Programming Model) is a modern framework in SAP used to build cloud-ready, OData-based business applications using ABAP.
+
+In simple terms:
+RAP helps you build end-to-end SAP applications (backend + frontend integration) in a structured, standardized way.
+Core RAP Topics (with Definitions)
+1. CDS Views (Core Data Services)
+Define data models at the database level.
+Used to expose data in a structured way.
+Think of it as:
+Database layer + business semantics
+
+2. Behavior Definition (BDEF)
+Defines how data behaves (CRUD operations: Create, Read, Update, Delete).
+Controls business logic like validations, actions.
+Example:
+Allow creating sales orders, but restrict deletion.
+3. Behavior Implementation (BIMP)
+ABAP class where actual logic is written.
+Implements rules defined in Behavior Definition.
+
+Think of it as:
+Backend logic execution layer
+4. Service Definition
+Exposes CDS views as services.
+It answers:
+“What data should be available to the outside world?”
+5. Service Binding
+Makes services accessible via OData (V2/V4).
+This is what connects SAP backend to UI/frontend apps.
+6. Projection Views
+A filtered or simplified version of CDS views.
+Used to control what the UI sees.
+
+7. Managed vs Unmanaged RAP
+Managed RAP
+SAP handles CRUD automatically.
+Less coding required.
+Unmanaged RAP
+
+Developer handles everything manually.
+More flexibility.
+8. Draft Handling
+Allows users to save incomplete data (like drafts in forms).
+Example:
+Saving a half-filled order before final submission.
+
+9. Locking & Authorization
+Controls:
+Who can access data
+Prevents conflicts (multiple users editing same record)
+10. ETag & Concurrency Control
+Ensures data consistency when multiple users update data.
+11. Actions & Determinations
+Actions → User-triggered operations
+Determination - Automatically triggered logic
+Example:
+Action: Approve Order
+Determination: Auto-calculated total price
+12. Validations
+Ensures data correctness before saving.
+ Example:
+Price cannot be negative.
+ RAP Architecture (Simple View)
+Database Layer → CDS Views
+      ↓
+Business Logic → Behavior Definition + Implementation
+      ↓
+Service Layer → Service Definition + Binding
+      ↓
+UI Layer → SAP Fiori / External Apps
+RAP and Full Stack Development
+
+Now connecting RAP with full-stack development:
+Backend (SAP RAP)
+CDS Views → Data modeling
+BDEF/BIMP → Business logic
+OData → APIs
+Equivalent to:
+Node.js / Java Spring Boot backend
+Frontend (SAP UI)
+Typically built using:
+SAP Fiori
+SAPUI5
+Or external frameworks (React, Angular)
+These consume RAP OData services.
+ Integration Layer
+OData APIs act like REST APIs.
+Used by:
+Web apps
+Mobile apps
+Third-party systems
+
+ Full Stack Mapping (SAP vs General Dev)
+Layer	SAP RAP	General Full Stack
+Database	CDS Views	SQL / NoSQL
+Backend	ABAP (RAP)	Node.js / Java
+API	OData	REST API
+Frontend	SAPUI5 / Fiori	React / Angular
+Deployment	SAP BTP / S4HANA	Cloud (AWS, etc.)
+ Example End-to-End Flow
+User opens Fiori app
+App calls RAP OData service
+Service reads CDS View
+Behavior logic executes
+Data returned to UI
+
+Why RAP is Important
+Cloud-ready (SAP BTP)
+Standardized development
+Clean architecture
+Faster development
+Supports modern UI (Fiori)
+If You're Learning RAP (Suggested Order)
+CDS Views
+Basic RAP (Managed Scenario)
+CRUD Operations
+Actions & Validations
+Service Binding (OData)
+Fiori App Integration
+Unmanaged RAP
+
+RAPM: The ABAP Restful Programming Model (RAP) enables developers to efficiently build cloud-ready, transactional business, apps, services and extensions on the SAP BTP ABAP Environment, SAP S/4 HANA Cloud Private Edition and SAP S/4 HANA.
+RAP is the heart of the ABAP Cloud development model when it comes to transactional scenarios.
+ The ABAP RESTful Application Programming Model (RAP) is an essential element of ABAP Cloud, the ABAP development model for building clean core compliant, cloud-ready business apps, services, and extensions on SAP BTP, SAP S/4HANA Cloud, and SAP S/4HANA. RAP is the heart of ABAP Cloud for building transactional SAP Fiori apps, OData-based services, and extensions.
+RAP encompasses a suite of concepts, tools, languages, and robust frameworks that helps developers in building innovative, cloud-ready SAP Fiori applications as well as local and Web APIs. It also supports the extension of SAP S/4HANA standard applications in both cloud and on-premise deployments.
+RAP provides a standardized development flow leveraging ABAP Core Data Services (CDS), the extended ABAP language, and business services within the modern ABAP Development Tools for Eclipse (ADT).
+Different types of services, local APIs, and business events can be developed and modeled with RAP:
+•	OData-based services for UI development to build delightful, role-based, responsive, and draft-enabled SAP Fiori apps
+•	OData-based services for exposure as Web APIs
+•	Lifecycle-stable and upgrade-safe local APIs can be provided via released RAP business objects interfaces
+•	Business events that can be used for asynchronous communication to notify a consumer that a RAP BO has changed
+Built-in options for testability, supportability, documentability, and extensibility such as ABAP unit tests, the ABAP cross trace tool, and knowledge transfer documents are provided along the RAP development stack.
+A seamless integration of reuse components such as business events and change documents in the RAP framework is offered to lower the total cost of development. Developers can for instance easily enable the exposure of business events and allow the creation of change documents within RAP based applications.
+SAP uses ABAP RAP to build new standard business applications and to modernize existing ones, and recommends it to its customers and partners for their own custom developments. 
+Data Modeling:
+ABAP Core Data Services (CDS) offers a data modelling infrastructure for defining semantically rich data models and easy access to advanced SAP HANA libraries and features using CDS table functions. The data definition language of ABAP CDS has been enhanced to natively support the definition of composition and behavior models of RAP BOs.
+Extensibility:
+RAP provides built in, modification-free extensibility options for data models, behaviors, and nodes of RAP Bos as well as for service definitions.
+Based on these RAP Extensibility options, full-fledged and upgrade-stable extensions can be built on SAP S/4 HANA Cloud using developer extensibility, where previously only limited key user extensibility options were available.
+
+April 2nd, 2026:
+Sap.ui.table
+500 smart controls in SAPUI5.
+SAPUI5 is a comprehensive JavaScript framework that features more than 500 UI controls designed to create enterprise-ready web applications, many of which are aligned with SAP Fiori design guidelines.
+These controls include standard UI elements as well as specialized Smart Controls (found in the sap.ui.comp library) that boost development by interpreting OData metadata and annotations, reducing the need for manual coding.
+
+Capm main folder structure:
+In an SAP Cloud Application Programming Model (CAPM) project, the directory structure is designed to separate concerns between the data model, service layer, and user interface. 
+db/ - Database Layer
+This folder contains all artifacts related to the application's persistent data structure. 
+•	Data Models: Defined using Core Data Services (CDS) in files such as schema.cds or data-model.cds.
+•	Entities: These definitions are converted into physical database tables or views during deployment (e.g., to SAP HANA or SQLite).
+•	Initial Data: A subfolder named db/data/ typically contains .csv files used to prepopulate the database with initial configuration or master data. 
+srv/ - Service Layer
+This folder holds the business logic and defines how data is exposed to the outside world. 
+•	Service Definitions: Managed in .cds files (e.g., cat-service.cds), these files define OData services by projecting or exposing entities from the db/ layer.
+•	Business Logic: Custom behaviors and event handlers (such as before, on, or after hooks) are implemented here using JavaScript (.js) or TypeScript (.ts) files that match the service file names. 
+app/ - UI Layer
+This folder is dedicated to the frontend and user-facing components of the application. 
+•	Web Content: Contains static assets, HTML, and UI frameworks like SAP Fiori or SAPUI5.
+•	UI Annotations: Often contains fiori or annotations.cds files that define how the data should be rendered in standard SAP Fiori elements.
+•	Application Router: In complex deployments, this folder may also house configuration for the Application Router to manage authentication and routing between the UI and backend
+
+RAPM:
+RAP (RESTful ABAP Programming Model) topics in SAP, along with definitions, and how they connect to full-stack development. I’ll break it down clearly so you can understand both the SAP-specific concepts and the broader full-stack picture.
+
+What is RAP in SAP?
+
+RAP (RESTful ABAP Programming Model) is a modern framework in SAP used to build cloud-ready, OData-based business applications using ABAP.
+
+In simple terms:
+RAP helps you build end-to-end SAP applications (backend + frontend integration) in a structured, standardized way.
+
+Core RAP Topics (with Definitions)
+1. CDS Views (Core Data Services)
+
+Define data models at the database level.
+
+Used to expose data in a structured way.
+
+👉 Think of it as:
+Database layer + business semantics
+
+2. Behavior Definition (BDEF)
+
+Defines how data behaves (CRUD operations: Create, Read, Update, Delete).
+
+Controls business logic like validations, actions.
+
+👉 Example:
+Allow creating sales orders, but restrict deletion.
+
+3. Behavior Implementation (BIMP)
+
+ABAP class where actual logic is written.
+
+Implements rules defined in Behavior Definition.
+
+👉 Think of it as:
+Backend logic execution layer
+
+4. Service Definition
+
+Exposes CDS views as services.
+
+👉 It answers:
+“What data should be available to the outside world?”
+
+5. Service Binding
+
+Makes services accessible via OData (V2/V4).
+
+👉 This is what connects SAP backend to UI/frontend apps.
+
+6. Projection Views
+
+A filtered or simplified version of CDS views.
+
+Used to control what the UI sees.
+
+7. Managed vs Unmanaged RAP
+
+Managed RAP
+
+SAP handles CRUD automatically.
+
+Less coding required.
+
+Unmanaged RAP
+
+Developer handles everything manually.
+
+More flexibility.
+
+8. Draft Handling
+
+Allows users to save incomplete data (like drafts in forms).
+
+👉 Example:
+Saving a half-filled order before final submission.
+
+9. Locking & Authorization
+
+Controls:
+
+Who can access data
+
+Prevents conflicts (multiple users editing same record)
+
+10. ETag & Concurrency Control
+
+Ensures data consistency when multiple users update data.
+
+11. Actions & Determinations
+
+Actions → User-triggered operations
+
+Determinations → Automatically triggered logic
+
+👉 Example:
+
+Action: Approve Order
+
+Determination: Auto-calculate total price
+
+12. Validations
+
+Ensures data correctness before saving.
+
+👉 Example:
+Price cannot be negative.
+
+🔷 RAP Architecture (Simple View)
+Database Layer → CDS Views
+      ↓
+Business Logic → Behavior Definition + Implementation
+      ↓
+Service Layer → Service Definition + Binding
+      ↓
+UI Layer → SAP Fiori / External Apps
+🔷 RAP and Full Stack Development
+
+Now connecting RAP with full-stack development:
+
+Backend (SAP RAP)
+
+CDS Views → Data modeling
+BDEF/BIMP → Business logic
+OData → APIs
+ Equivalent to:
+Node.js / Java Spring Boot backend
+Frontend (SAP UI)
+
+Typically built using:
+
+SAP Fiori
+SAPUI5
+Or external frameworks (React, Angular)
+ These consume RAP OData services.
+Integration Layer
+OData APIs act like REST APIs.
+Used by:
+Web apps
+Mobile apps
+Third-party systems
+Full Stack Mapping (SAP vs General Dev)
+Layer	SAP RAP	General Full Stack
+Database	CDS Views	SQL / NoSQL
+Backend	ABAP (RAP)	Node.js / Java
+API	OData	REST API
+Frontend	SAPUI5 / Fiori	React / Angular
+Deployment	SAP BTP / S4HANA	Cloud (AWS, etc.)
+Example End-to-End Flow
+User opens Fiori app
+App calls RAP OData service
+Service reads CDS View
+Behavior logic executes
+Data returned to UI
+ Why RAP is Important
+Cloud-ready (SAP BTP)
+Standardized development
+Clean architecture
+Faster development
+
+Supports modern UI (Fiori)
+If You're Learning RAP (Suggested Order)
+CDS Views
+Basic RAP (Managed Scenario)
+CRUD Operations
+Actions & Validations
+Service Binding (OData)
+Fiori App Integration
+Unmanaged RAP
+
+The ABAP RESTful Application Programming Model (RAP) is SAP's modern framework for building cloud-ready, transactional business applications, services, and extensions on SAP BTP ABAP Environment, SAP S/4HANA Cloud, and on-premise S/4HANA. It provides a standardized development flow for creating OData-based services, enabling Fiori apps, and managing business objects, leveraging ABAP Core Data Services (CDS) for data modeling. 
+
+Core Topics and Pillars of RAP
+•	Data Modeling (CDS): Core Data Services (CDS) is the cornerstone for defining semantically rich data models, including database tables, CDS views, associations, and projections.
+•	Behavior Modeling & Implementation: Defines how data can be acted upon. It separates behavior definition (what can be done) from behavior implementation (how it is done in ABAP).
+o	Managed Scenario: RAP automatically handles CRUD (Create, Update, Delete) operations, reducing code requirements.
+o	Unmanaged Scenario: Used for greenfield/brownfield projects to leverage existing business logic (BAPIs/function modules).
+•	Business Object (BO) Structure: Defines real-world entities (e.g., Sales Order) with nodes, standard operations (create/update/delete), and non-standard actions.
+•	Entity Manipulation Language (EML): An SQL-like ABAP syntax used to manipulate transactional behavior of RAP BOs within ABAP code.
+•	Service Exposure (OData & Fiori): RAP defines services through service definitions and bindings, exposing data and behavior as OData v2 or v4 for Fiori UIs or external Web APIs
+	
