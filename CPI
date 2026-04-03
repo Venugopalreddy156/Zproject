@@ -1,0 +1,94 @@
+CPI Revise Topics:
+SAP CPI is a cloud-based middleware solution that enables the integration of applications and automated data transformation.
+ It provides prebuilt adapters, adjustable content, and support for synchronous and asynchronous scenarios to enable businesses to integrate their systems.
+IFlOW: An IFlow is a graphical representation of an integration process. It is a comprehensive design that represents an entire integration scenario, encompassing various components required to connect and process data between systems. It includes:
+Sender and Receiver Systems: The external systems that data is exchanged with.
+Message Mappings: The logic to transform data from one format to another.
+Routing Logic: Rules that determine how and where data should be directed.
+Processing Steps: Additional steps such as validation, enrichment, or error handling.
+Interface generally encompasses the components that manage data communication and transformation within an integration scenario. It includes sender and receiver configurations, as well as any associated message mappings.
+
+
+1.	Participant – Sender & Receiver Systems
+2.	Process – Exception Process, Integration Process and Local Integration Process
+The Process Call shape enables you to execute another process from within a process. The subprocess that is called is considered a separate, distinct process execution. The process that calls another process is sometimes referred to as a parent or main process.
+In SAP Cloud Integration (CPI), the exception process is a component that handles errors that occur during the integration process. It's a safety net that catches mistakes and allows users to implement predefined plans to reduce disruptions.
+Local Integration Process is similar to Integration Process Call in which we can perform the various steps but the only difference is that is is used with the Integration Flow Process in which it is initiated with the Process Call. Open the Integration Flow in the Edit mode.
+In SAP Cloud Platform Integration (CPI), a local integration process (LIP) is a subprocess that can be called within an integration flow (IFlow). It can be used to break down a main process into smaller parts.
+3.	Events – End Event (It represents end event), End Message(Represents an message end event), Error End Event(represents an error end event), Error Start Event(represents an error start event), Escalation End Event(represents an escalation end event), Start Event(represents an start event), Start Message Event(represents an message start event), Terminate Message Event(represents terminate of a message) and Timer Event(represents timer start event)
+4.	Mapping – ID , Message, Operation and XSLT Mappings.
+ID Mapping - Provides a way to pass the same ID into a header without sending the exact source data. This allows receivers to avoid processing duplicates.
+Message Mapping - Uses Java SDK and user-defined functions (UDFs) to map messages.
+Operation Mapping – In SAP Process Integration (PI), operation mapping is a way to connect the source and target operations of a sender and receiver system's service interfaces. It can also be used to link IDoc and RFC interfaces with service interface operations or entities of the same type.
+XSLT Mapping - Uses XSLT (Extensible Stylesheet Language Transformations) to create target formats. 
+Value Mapping is a method for converting and transforming data between various formats or systems, and it is utilised in the context of SAP CPI. It serves as a link between source and target systems, ensuring accurate data conversion and mapping throughout integration procedures.
+5.	Transformation - Content Modifier, Converter(CSV to XML, EDI to XML, JSON to XML, XML to CSV, XML to EDI and XML to JSON) ,  Decoder(Base64 Decoder, GZIP Decompression, MIME Multipart Decoder and ZIP Decompression), EDI Extractor, Encoder((Base64 Encoder, GZIP Compression, MIME Multipart Encoder and ZIP Compression), Filter, Message Digest , Script(Groovy and Java Scripts) and XML Modifier.
+6.	Call – External Call(Content Enricher, Poll Enrich, Request Reply and Send), Local Call(Idempotent Process Call, Looping Process Call and Process Call)
+List of external call elements:
+Content Enricher – Mechanism to combine the incoming message with additional data retrieved from an external source.
+Poll Enrich – Polls to external system and enriches incoming message.
+Request Reply – Represents a call to an external system without terminating the process.
+Send – Represents a one-way call to an external system 
+Send is used to configure a service call without any response expected.
+List of internal call elements
+Idempotent Process Call – Add a process call step to check for duplicate id’s and conditionally execute the steps defined in a logical integration process.
+Looping Process Call – Add a process call step to repeatedly to execute steps defined in a logical integration process
+Process Call - Add a call process step  to execute steps defined under the logical integration process pool.
+
+
+7.	Routing – Aggregator, Gather, Join, Multicast(Parallel and Sequential Multicasts), Router and Splitter(EDI, General, IDoc, Iterating, PKCS#7/CMS, Tar and Zip Splitters)
+Aggregator – Aggregates several incoming message to a single one.
+Gather – Define the aggregation strategy.
+Join – Sends multiple incoming message to a single outgoing path.
+Multicast – Sends same message to more than one path.
+Parallel Multicast - Sends same message to more than one path in parallel.
+Sequential Multicast - Sends same message to more than one path in defined sequence.
+
+Router – exclusive decision and merging.
+Splitter – Breaks down a composite message into series of individual messages. 
+EDI Splitter - – Breaks down a composite message into series of individual messages. 
+General Splitter   – Breaks down a message into  individual messages keeping the encapsulation elements. 
+IDoc Splitter - Breaks down a composite message into series of individual messages. 
+Iterating Splitter - Breaks down a message into  individual messages without encapsulation elements. 
+PKCS#7/CMS Splitter - Breaks down a composite message into series of individual messages. 
+
+Tar Splitter – Breaks down a tar file in to individual messages.
+Zip Splitters – Breaks down a zip file in to individual messages.
+
+8.	Security – Decryptor(PGP, PKCS7 Decryptors), Encryptor(PGP, PKCS7 Decryptors), Signer(PKCS7,Simple and XML Digital Signers) and Verifier (PKCS7 Signature and XML Signature)
+Decryptor – Decryptes the encrypted data contained in the body of the incoming message.
+PGP Decryptor - – Decryptes the encrypted data contained in the body of the incoming message.
+
+PKCS7 Decryptor - – Decryptes the encrypted data contained in the body of the incoming message.
+
+Encryptor – Encrypts the content of the incoming message body.
+PGP Encryptor – Encrypts the content of the incoming message body.
+
+PKCS7 Encryptor – Encrypts the content of the incoming message body.
+Signer – Digitally signs the message content 
+PKCS7 Signer – The PKCS#7/CMS Signer allows you to sign the message with one or more private keys. 
+Simple Signer – Sign a incoming message.
+XML Digital Signers – Create digital signature for a xml message.
+Verifier – Verifies the signature of the message content.
+PKCS7 Signature Verifier – Verifies the signed message is authentic.
+XML Signature Verifier – Validate the XML Signature contained in the incoming message body.
+
+9.	Persistence – Data Store Operations(Get, Select, Delete and Write), Persist, and Write Variables
+       Persist  - Stores message payload at a process step.
+Write Variables – Add a write variables.
+Data Store Operations – Performs operations with data store.
+Get – Performs get operation with data store.
+Select – Performs select operation with data store.
+Delete – Performs delete operation with data store.
+Write – Performs write operation with data store.
+
+
+10.	Validator – EDI and XML Validator 
+EDI Validator – Validation of EDI Documents
+XML Validator – Validation of XML Documents
+
+
+
+
+
+
