@@ -1,0 +1,364 @@
+CAPM (Cloud Application Programming Model) project creation in BAS (Full Stack Cloud Application):
+In the Projects directory, create a new CAP project as shown below. Open terminal and use the command "cds init <project_name>". A sample CAP application with the pre-defined folder structure is created.
+Cds init project name
+ 
+In the "db" folder, create a file named "data-model.cds" and paste the contents as below. This creates the entity "trainer" in the namespace "training". 
+ 
+
+ 
+
+Use "cds add data" to add data feature to your project. This will be the sample mock data for testing our application in development.
+ 
+
+When I run the following command cds watch in terminal get the below screen.
+ 
+Npm install
+Then only we can run the Fiori app.
+Npm install hana-cli – to see the hana projects in the dev space like below screen.
+ 
+
+If we want to extend the capm app in Fiori we need to follow the below steps:
+Left click place a mouse over right click select the file and choose new project from template and select the sap Fiori generator template and select the list report page template and next data source and service selection will display then use a local cap project and choose an cap project and odata service automatically will populate and webapp project folder structure will create under app.
+ 
+Folder structure for capm app:
+.vscode
+App
+Db
+Srv
+.gitignore
+Eslint.config.mjs
+Package.json
+README.md
+Once we create the capm app after that we need to create Fiori app for extensions in capm project and below is the file structure.
+Controller
+Css
+I18n
+Model 
+Service
+Utility
+View
+Annotation.cds
+Component.js
+Index.html
+Manifest.json
+.gitignore file
+Package-lock.json
+Package.json
+README.md
+Ui5-deploy.yaml
+Ui5-lock.yaml
+Ui5.yaml
+Xs-app.json
+Here are clear, concise definitions for each of the files and folders typically found in a SAP Fiori / UI5 project:
+
+Core MVC & App Structure
+Controller
+JavaScript file that contains the logic for handling user interactions (e.g., button clicks), updating the model, and controlling the view behavior.
+View
+Defines the UI layout (XML/HTML/JS). It binds UI elements to data from models and connects to a controller.
+Model
+Represents application data and business logic. It manages data binding between the backend/service and the view (e.g., JSONModel, ODataModel).
+
+ Styling & Text
+CSS
+Stylesheet used to define the look and feel (colors, spacing, fonts) of the application UI.
+i18n
+Internationalization file (usually. properties) that stores translatable text to support multiple languages.
+
+Data & Backend Interaction
+Service
+Handles communication with backend systems (e.g., OData services, REST APIs) for fetching and updating data.
+Annotation.cds
+Core Data Services (CDS) annotation file used to define metadata like UI behavior, labels, value helps, and semantic meanings for OData services.
+
+ Helper Logic
+Utility
+Contains reusable helper functions (e.g., formatters, validators) used across controllers and views.
+
+App Initialization & Configuration
+Component.js
+Main entry point of the UI5 application. Initializes models, routing, and app configuration.
+Index.html
+Bootstrap file that loads the UI5 framework and starts the application.
+Manifest.json
+Central configuration file describing the app (metadata, routing, models, data sources, dependencies).
+
+Project & Dependency Management
+Package.json
+Defines project metadata, dependencies, scripts, and configurations for Node.js/npm.
+Package-lock.json
+Automatically generated file that locks dependency versions for consistent installations.
+.gitignore
+Specifies which files/folders Git should ignore (e.g., node_modules, build files).
+
+UI5 Tooling & Deployment
+ui5.yaml
+Configuration file for UI5 Tooling (defines project type, dependencies, build settings).
+ui5-lock.yaml
+Locks versions of UI5 dependencies to ensure consistent builds.
+ui5-deploy.yaml
+Defines deployment configuration (e.g., deploying to SAP BTP or ABAP server).
+
+App Routing & Security
+xs-app.json
+Defines routing rules and authentication configuration for apps deployed on SAP BTP (Cloud Foundry).
+
+Documentation
+README.md
+Markdown file that provides project overview, setup instructions, usage, and documentation.
+
+
+.vscode:
+Editor-specific settings (for VS Code)
+Extensions.json
+•	settings.json → Workspace settings (formatter, CAP tools, etc.) 
+•	launch.json → Debug configurations 
+•	tasks.json → Build/run tasks 
+Note: Not required for deployment, only for development convenience.
+App:
+app/
+ ├── my-ui-app/
+ │    ├── webapp/
+ │    │    ├── controller/
+ │    │    ├── view/
+ │    │    ├── model/
+ │    │    ├── manifest.json
+ │    │    └── index.html
+ │    └── package.json
+UI consumes OData services from srv/ 
+Can contain multiple apps
+Db:
+Defines data schema and data.
+db/
+ ├── schema.cds
+ ├── data/
+ │    ├── my.bookshop-Books.csv
+ │    └── my.bookshop-Authors.csv
+ └── src/ (optional for HANA artifacts) Key contents:
+•	.cds files → Define entities (tables) 
+•	.csv files → Initial data (seed data)
+Example:
+entity Books {
+  key ID : Integer;
+  title  : String;
+  stock  : Integer;
+}
+
+Srv:
+Defines business logic and expose APIS
+Typical Structure
+srv/
+ ├── service.cds
+ ├── service.js   (or .ts)
+ └── handlers/
+Key contents:
+ .cds → Service definitions (OData endpoints) 
+ .js/.ts → Custom logic (event handlers)
+Example:
+using { my.bookshop as db } from '../db/schema';
+
+service CatalogService {
+  entity Books as projection on db.Books;
+}
+Example handler:
+module.exports = (srv) => {
+  srv.on('READ', 'Books', async (req) => {
+    return [{ ID: 1, title: "CAP Guide", stock: 10 }];
+  });
+};
+.gitignore:
+Specifies files/folders should ignore
+Common entries:
+node_modules/
+.env
+dist/
+
+eslint.config.mjs:
+Linting configuration for JavaScript/TypeScript
+•	Ensures code quality and consistency 
+•	Used with ESLint
+Package.json:
+Project metadata and dependencies.
+Key sections:
+</> JSON
+{
+  "name": "cap-project",
+  "dependencies": {
+    "@sap/cds": "^7"
+  },
+  "scripts": {
+    "start": "cds run"
+  }
+}
+Controls:
+•	Dependencies 
+•	Scripts (cds watch, cds run) 
+•	Project config
+README.md:
+Documentation file
+Typically includes:
+•	Project description 
+•	Setup instructions 
+•	Commands to run app
+How everything connects:
+[ app (UI)]
+       ↓ (HTTP / OData)
+[ srv (Services + Logic)]
+       ↓
+[ db (Database Models + Data)]
+•  cds watch → Run with auto-reload 
+    •  cds run → Start server 
+•  cds build → Build for deployment
+
+Real CAP Project:
+bookshop/
+ ├── app/
+ ├── db/
+ │    ├── schema.cds
+ │    └── data/
+ │         ├── sap.capire.bookshop-Books.csv
+ │         └── sap.capire.bookshop-Authors.csv
+ ├── srv/
+ │    ├── catalog-service.cds
+ │    └── catalog-service.js
+ ├── package.json
+ └── README.md
+
+Db/schema.cds(Data Model)
+cds
+namespace sap.capire.bookshop;
+
+entity Authors {
+  key ID   : Integer;
+  name     : String;
+}
+
+entity Books {
+  key ID     : Integer;
+  title      : String;
+  stock      : Integer;
+  author     : Association to Authors;
+}
+db/data/*.csv (Sample Data)
+Authors
+ID,name
+1,J.K. Rowling
+2,George Orwell
+Books
+ID,title,stock,author_ID
+1,Harry Potter,100,1
+2,1984,50,2
+srv/catalog-service.cds (Service Layer)
+using { sap.capire.bookshop as db } from '../db/schema';
+
+service CatalogService {
+  entity Books as projection on db.Books;
+  entity Authors as projection on db.Authors;
+}
+srv/catalog-service.js (Custom Logic)
+module.exports = (srv) => {
+  srv.before('CREATE', 'Books', (req) => {
+    if (req.data.stock < 0) {
+      req.error('Stock cannot be negative');
+    }
+  });
+};
+package.json:
+</> JSON
+{
+  "name": "bookshop",
+  "dependencies": {
+    "@sap/cds": "^7"
+  },
+  "scripts": {
+    "start": "cds run",
+    "watch": "cds watch"
+  }
+}
+RUN THE PROJECT
+Npm install
+Cds watch
+Open:
+http://localhost:4004/catalog/books
+connecting cap to sap hana
+step 1: Add HANA Dependency
+npm install @sap/cds-hana
+step 2: update package.json
+"cds": {
+  "requires": {
+    "db": {
+      "kind": "hana"
+    }
+  }
+}
+Step 3: Add HANA Configuration
+{
+  "requires": {
+    "db": {
+      "kind": "hana",
+      "credentials": {
+        "host": "<hana-host>",
+        "port": "443",
+        "user": "<username>",
+        "password": "<password>",
+        "schema": "BOOKSHOP"
+      }
+    }
+  }
+}
+Step 4: Deploy to HANA
+BUILD ARTIFACTS
+BASH
+cds build --for hana
+deploy
+cds deploy --to hana
+Step 5: RUN WITH HANA
+Cds run
+Now cap uses sap hana instead of sqlite database.
+End to end request flow:
+GET /catalog/Books
+1. UI Layer (app/)
+•	User clicks "View Books" 
+•	Sends HTTP request to:
+
+Service Layer (srv/)
+•	catalog-service.cds exposes endpoint 
+•	CAP runtime intercepts request 
+Note: If custom logic exists:
+srv.on('READ', 'Books', ...)
+CAP Runtime
+•	Converts OData → SQL 
+•	Applies: 
+o	Filters 
+o	Projections 
+o	Associations 
+
+4. Database Layer (db/)
+•	Query executed on: 
+o	SQLite (default) OR 
+o	SAP HANA (production)
+Example SQL:
+SELECT * FROM Books;
+Response Back
+•	Data → CAP → OData JSON → UI 
+{
+  "value": [
+    { "ID": 1, "title": "Harry Potter", "stock": 100 }
+  ]
+}
+
+VISUAL FLOW:
+[ Browser / UI ]
+        ↓
+[ OData Request ]
+        ↓
+[ CAP Service (srv) ]
+        ↓
+[ CDS Model (db) ]
+        ↓
+[ Database (HANA / SQLite) ]
+        ↓
+[ Response → UI ]
+
+
+
