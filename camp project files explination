@@ -1,0 +1,15 @@
+"Annotations:Annotations in SAP Cloud Application Programming Model (CAP) are metadata, prefixed with @, used to enrich Core 
+  Data Services (CDS) models with functional, semantic, or UI-specific information. They define how data is displayed, 
+  validated, or behaves in Fiori apps and OData services without changing the core business logic.
+Css: In SAP CAP (Cloud Application Programming) Model, CSS (Cascading Style Sheets) is used for defining the presentation
+and visual styling of the user interface, typically for web applications built with SAPUI5 or Fiori. 
+    CSS helps separate the content structure (defined in HTML) from its visual design, ensuring a consistent look and 
+feel across the application based on SAP Fiori Design Guidelines. 
+ext: In SAP Cloud Application Programming Model (CAPM), an ext folder (often explicitly srv/external or a folder within app/ for UI extensions) is a dedicated directory used to house external definitions, extensions, or customized content that augment the core application functionality without directly modifying the base code. 
+i18n: The i18n (internationalization) folder in SAP CAPM is a dedicated directory, usually placed in the project root, used to store language-specific .properties files (e.g., i18n.properties, i18n_de.properties). It enables the localization of labels, service definitions, and error messages, allowing the application to display text in different languages based on user settings.
+localservice:In a SAP Cloud Application Programming Model (CAPM) project, the srv (service) folder is the designated directory for defining, implementing, and exposing local services. It is a fundamental component of the project structure where you define API endpoints that bridge the data model (db folder) with the client application.
+test: In an SAP Cloud Application Programming Model (CAPM) project, the test folder is a conventional directory used to store all local test-related files, including unit tests, integration tests, and files for testing APIs (like api.http files). These files are not intended for production deployment and help organize your testing efforts during development.
+Component.js: The Component.js file in a SAP Cloud Application Programming Model (CAPM) project defines the application's main SAPUI5/Fiori component, which acts as the central entry point and controller for the entire user interface. It is a fundamental part of modularizing the frontend and managing its various elements.
+Application Entry Point: It is the initial file the SAPUI5 runtime looks for to start the application.
+Index.html: In the SAP Cloud Application Programming Model (CAP) for Node.js, index.js is not a mandatory default file, but rather a customizable entry point or configuration file used to define custom server behavior, middleware, or to initialize application modules. 
+In SAP Cloud Application Programming Model (CAPM), index.html serves as the entry point or default home page for user interfaces, particularly when developing frontend applications using SAPUI5 or Fiori Elements."
