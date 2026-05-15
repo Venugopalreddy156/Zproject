@@ -1,7 +1,10 @@
 SAPUI5/FIORI Topics:
 1.Difference between SAPUI5 & FIORI:
-SAPUI5 is the technical development framework (HTML5, CSS, JavaScript) used to build web apps, while Fiori is the design paradigm and user experience (UX) guidelines applied to those apps. Simply put, SAPUI5 is the tool used to create the modern, responsive interface that Fiori defines.
-Fiori is a new user experience for SAP software . To overcome the complexity of SAP traditional GUI ,New one has been developed  which is Fiori.
+SAPUI5 is the technical development framework (HTML5, CSS, JavaScript) used to build web apps, 
+while Fiori is the design paradigm and user experience (UX) guidelines applied to those apps. 
+Simply put, SAPUI5 is the tool used to create the modern, responsive interface that Fiori defines.
+Fiori is a new user experience for SAP software . To overcome the complexity of SAP traditional GUI ,
+New one has been developed  which is Fiori.
 
 Fiori focus mainly on mobility. Fiori uses SAPUI5 for frontend and it uses odata to get back-end data.
 
@@ -9,7 +12,9 @@ Fiori is a design paradigm - not a methodology.
 
 The primary technology used for Fiori is SAPUI5.
 2.What is MVC Architecture?
-Model-View-Controller (MVC) concept is used in SAP UI5 development to keep the application data separate from the user interactions. This allows you to develop the web applications and make changes to the applications independently.
+Model-View-Controller (MVC) concept is used in SAP UI5 development to keep the application data separate
+from the user interactions. This allows you to develop the web applications and make changes to the applications 
+independently.
 •	The Model is responsible for managing the application data in the database/backend.
 •	The View is responsible for defining the user interface to users. When a user sends a request from his device, the view is responsible for data view as per the request submitted.
 •	The Controller is used to control the data and view events as per user interaction by updating the view and model.
@@ -235,6 +240,73 @@ Once a tile is clicked, the FLP manages the transition through the following tec
 Key Difference from Standalone Apps
 •	Standalone: Loads index.html first to bootstrap the UI5 resources and then calls Component.js.
 •	Launchpad: The FLP is already bootstrapped; it skips the app's individual index.html and goes straight to Component.js
+
+22.increment side a for loop.
+sap.ui.define([
+    "sap/ui/core/mvc/Controller"
+], function (Controller) {
+    "use strict";
+
+    return Controller.extend("demo.controller.View1", {
+
+        onInit: function () {
+
+            for (var i = 0; i < 5; i++) {
+                console.log("Value of i:", i);
+            }
+
+        }
+
+    });
+});
+
+23.use strict(In sapui5 without use strict will the app work)
+Yes, SAP Fiori applications will generally load and display even without "use strict"; in the controller, as it is a JavaScript best practice rather than a technical requirement for UI5 framework rendering. However, omitting it can lead to silent errors, unexpected behavior, or compatibility issues in older browsers (e.g., Internet Explorer 11). [1, 2, 3, 4, 5]
+Key Considerations:
+•	Functionality: The application will run, but "use strict"; prevents unsafe actions like assigning to undeclared variables, which helps ensure code stability.
+•	Compatibility: If the app fails to load, removing "use strict"; is sometimes suggested as a troubleshooting step for very old browser compatibility, though it is not best practice.
+•	Best Practice: Always include "use strict"; inside the sap.ui.define or sap.ui.require block for modern SAPUI5 applications to enable stricter parsing and error handling.
+In SAPUI5, "use strict" is a directive that enables Strict Mode, a way to opt into a restricted variant of JavaScript that catches common coding errors and prevents "unsafe" actions. [1, 2]
+Purpose in SAPUI5
+The primary goal is to improve code quality and security during development. [1, 2]
+•	Error Prevention: It converts silent failures into explicit errors, such as when you accidentally create global variables by forgetting a var, let, or const keyword.
+•	Security: It prevents access to the global window object via this in functions, reducing potential security vulnerabilities.
+•	Performance: Stricter code is often easier for JavaScript engines to optimize, potentially leading to faster execution.
+•	Best Practices: It prohibits the use of confusing or deprecated features like the with statement and ensures function parameters have unique names
+
+
+24.webide options when we right click on the app we can see the below options:
+Run, build, deploy, git, new, import, export, edit, project, refresh workspace items and quick access.
+Run methods – Run as component.js
+Run index.html
+Run as web application
+Run as unit test
+Run as SAP Fiori Launchpad Sandbox
+Run configurations
+
+25. Difference between sap.m and sap.ui libraries
+26.Libraries
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/model/json/JSONModel",
+	"sap/ui/core/Fragment",
+	'sap/m/Token',
+	"sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator",
+	"com/bexquery/ZBEXQUERY/model/models",
+	"sap/m/MessageBox",
+	'sap/ui/core/util/Export',
+	"sap/ui/export/Spreadsheet",
+	"sap/ui/core/util/ExportTypeCSV",
+	"sap/m/List",
+	"sap/m/CustomListItem",
+	"sap/m/CheckBox",
+	"sap/ui/model/Sorter",
+	"sap/ui/core/util/ExportType",
+	"sap/ui/export/ExportUtils",
+	'sap/m/MessageToast',
+	'sap/ui/export/library'
+
+
 
 Binding Modes
 •	One-Way: Data flows from the model to the view only.
