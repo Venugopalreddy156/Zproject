@@ -285,6 +285,155 @@ Run as SAP Fiori Launchpad Sandbox
 Run configurations
 
 25. Difference between sap.m and sap.ui libraries
+
+In SAPUI5, sap.m and sap.ui.table are different libraries used for different purposes.
+
+1. sap.m Library
+
+SAPUI5 sap.m is mainly used for:
+
+Responsive applications
+Mobile apps
+Tablet-friendly UI
+Simple desktop apps
+
+It contains controls like:
+
+Button
+Input
+Dialog
+List
+Table (sap.m.Table)
+XML Namespace
+xmlns="sap.m"
+Example of sap.m.Table
+<Table items="{/Employees}">
+    <columns>
+        <Column>
+            <Text text="ID"/>
+        </Column>
+
+        <Column>
+            <Text text="Name"/>
+        </Column>
+    </columns>
+
+    <items>
+        <ColumnListItem>
+            <cells>
+                <Text text="{ID}"/>
+                <Text text="{Name}"/>
+            </cells>
+        </ColumnListItem>
+    </items>
+</Table>
+2. sap.ui.table Library
+
+sap.ui.table is mainly used for:
+
+Desktop applications
+Large data handling
+Analytical tables
+Grid-style tables
+Enterprise applications
+
+It contains controls like:
+
+sap.ui.table.Table
+TreeTable
+AnalyticalTable
+XML Namespace
+xmlns:t="sap.ui.table"
+Example of sap.ui.table.Table
+<t:Table
+    rows="{/Employees}"
+    visibleRowCount="5">
+
+    <t:columns>
+
+        <t:Column>
+            <Label text="ID"/>
+            <t:template>
+                <Text text="{ID}"/>
+            </t:template>
+        </t:Column>
+
+        <t:Column>
+            <Label text="Name"/>
+            <t:template>
+                <Text text="{Name}"/>
+            </t:template>
+        </t:Column>
+
+    </t:columns>
+
+</t:Table>
+Main Difference
+Feature	sap.m.Table	sap.ui.table.Table
+Responsive	Yes	No
+Mobile Support	Excellent	Limited
+Desktop Optimized	Basic	Excellent
+Large Data Handling	Not ideal	Best
+Scrolling	Growing feature	Virtual scrolling
+Performance	Medium	High
+Use Case	Mobile/Fiori apps	Enterprise desktop apps
+Which table for how many rows?
+Use sap.m.Table
+
+Recommended when:
+
+Data is small or medium
+Around up to 100–200 rows
+Mobile responsive requirement
+
+Example:
+
+Employee list
+Product cards
+Approval apps
+Use sap.ui.table.Table
+
+Recommended when:
+
+Large datasets
+Hundreds or thousands of rows
+Desktop-heavy applications
+
+Example:
+
+ALV-style reports
+Financial tables
+Analytical dashboards
+Which library should be used in view.xml?
+For Responsive Fiori App
+
+Use:
+
+xmlns="sap.m"
+
+Most modern Fiori apps primarily use sap.m.
+
+For Desktop Analytical App
+
+Use both:
+
+xmlns="sap.m"
+xmlns:t="sap.ui.table"
+
+Then use:
+
+<t:Table>
+
+for heavy data tables.
+
+Real-time Project Recommendation
+Scenario	Recommended
+Fiori Launchpad App	sap.m
+Mobile Application	sap.m
+Simple CRUD App	sap.m.Table
+Large Reporting App	sap.ui.table.Table
+ALV-like Grid	sap.ui.table.Table
+
 26.Libraries
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/model/json/JSONModel",
